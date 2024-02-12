@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "hyazinth"
+version = "0.1.0"
+description = ""
+authors = ["Alexander Poth <allekai.poth@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+Django = "^5.0.2"
+django-crispy-forms = "^2.1"
+crispy-bootstrap5 = "^2023.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
