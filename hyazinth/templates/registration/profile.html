@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+{% include "base/navbar.html" %}
+<div class="container">
+    <h1>Willkommen, {{ user.username }}!</h1>
+    {% if messages %}
+    {% include "base/toast.html" %}
+    {% endif %}
+
+    <div class="profile-info">
+        {% if user.profile.avatar %}
+        <img src="{{ user.profile.avatar.url }}" alt="Profilbild">
+        {% endif %}
+
+        <ul>
+            <li><strong>Name:</strong> {{ user.username }}</li>
+            <li><strong>E-Mail:</strong> {{ user.email }}</li>
+            {% if user.profile.bio %}
+            <li><strong>Über mich:</strong> {{ user.profile.bio }}</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
