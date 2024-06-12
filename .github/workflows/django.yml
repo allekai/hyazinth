@@ -37,5 +37,9 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install
 
+      - name: Change working directory
+        run: cd hyazinth  # Gehe in das Verzeichnis, in dem manage.py liegt
+
       - name: Run tests
         run: poetry run python manage.py test
+
