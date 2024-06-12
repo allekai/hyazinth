@@ -15,6 +15,9 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Profil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'fahrt_liste' %}">Fahrten</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
                 </li>
                 {% else %}
@@ -25,7 +28,6 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
                 </li>
                 {% endif %}
-
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

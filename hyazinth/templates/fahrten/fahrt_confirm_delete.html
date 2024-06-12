@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'base/navbar.html' %}
+
+<div class="container mt-4">
+    <h1>Fahrt löschen</h1>
+
+    <p>Möchtest du die Fahrt "{{ object.titel }}" wirklich löschen?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Ja, löschen</button>
+    </form>
+
+    <a href="{% url 'fahrt_liste' %}" class="btn btn-secondary mt-2">Abbrechen</a>
+</div>
+
+{% endblock %}
