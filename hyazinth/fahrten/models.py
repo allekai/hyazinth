@@ -14,6 +14,9 @@ class Pfadfinderfahrt(models.Model):
     beschreibung = models.TextField(blank=True)
     motto = models.CharField(max_length=255, blank=True, null=True)  # Motto optional
 
+    def __str__(self):
+        return f"Pfadfinderfahrt: {self.titel} ({self.start_zeit.strftime('%Y-%m-%d')})"
+
 
 class Anmeldung(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
