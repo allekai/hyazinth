@@ -40,4 +40,4 @@ jobs:
         run: cd hyazinth 
 
       - name: Run tests
-        run: poetry run hyazinth/manage.py test
+        run: poetry run python hyazinth/manage.py test
