@@ -1,5 +1,5 @@
 from django import forms
-from .models import Pfadfinderfahrt
+from .models import Pfadfinderfahrt, Anmeldung
 
 
 class PfadfinderfahrtForm(forms.ModelForm):
@@ -19,3 +19,9 @@ class PfadfinderfahrtForm(forms.ModelForm):
             "start_zeit": forms.DateTimeInput(attrs={"type": "datetime-local"}),
             "end_zeit": forms.DateTimeInput(attrs={"type": "datetime-local"}),
         }
+
+
+class AnmeldungForm(forms.ModelForm):
+    class Meta:
+        model = Anmeldung
+        fields = ["fahrt"]  # Nur die Fahrt auswählen lassen
