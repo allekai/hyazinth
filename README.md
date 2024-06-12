@@ -26,6 +26,14 @@ As a user on the Hyazinth I want to...
 ## Fahrten
 * Create new Fahrt
 * Search capability
+* Fahrtenseite (Also schöne Darstellung eines Fahrtenobjektes) inkl. Anmeldung!
+
+
+## Anmeldungen
+* Anmeldung grds per View nur über die Seite der Fahrt zulassen (Refactoring des bestehenden)
+
+## GIS
+* Maps usw mit reinbringen!
 
 ## Dark Mode Support
 Weil wichtig.
