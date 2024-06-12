@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'base/navbar.html' %}
+
+<div class="container mt-4">
+    <h1>Pfadfinderfahrten</h1>
+
+    <a href="{% url 'fahrt_erstellen' %}" class="btn btn-primary mb-3">Neue Fahrt erstellen</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Ziel</th>
+                <th>Beschreibung</th>
+                <th>Motto</th>
+                <th>Startzeit</th>
+                <th>Endzeit</th>
+                <th>Startort</th>
+                <th>Endort</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fahrt in object_list %}
+            <tr>
+                <td>{{ fahrt.titel }}</td>
+                <td>{{ fahrt.ziel }}</td>
+                <td>{{ fahrt.beschreibung }}</td>
+                <td>{{ fahrt.motto }}</td>
+                <td>{{ fahrt.start_zeit }}</td>
+                <td>{{ fahrt.end_zeit }}</td>
+                <td>{{ fahrt.start_ort }}</td>
+                <td>{{ fahrt.end_ort }}</td>
+                <td>
+                    <a href="{% url 'fahrt_bearbeiten' fahrt.pk %}" class="btn btn-sm btn-warning">Bearbeiten</a>
+                    <a href="{% url 'fahrt_loeschen' fahrt.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

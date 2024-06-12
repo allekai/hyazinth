@@ -4,7 +4,7 @@ A vessel for the future ⛵
 
 # Current list of modules and to do's
 
-## User Management
+## User Management (accounts)
 
 As a user on the Hyazinth I want to...
 
@@ -23,6 +23,9 @@ As a user on the Hyazinth I want to...
 * log out 
     * be redirected to the front page
 
+## Fahrten
+* Create new Fahrt
+* Search capability
 
 ## Dark Mode Support
 Weil wichtig.
