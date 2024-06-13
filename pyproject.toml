@@ -10,6 +10,7 @@ python = "^3.12"
 Django = "^5.0.2"
 django-crispy-forms = "^2.1"
 crispy-bootstrap5 = "^2023.10"
+pillow = "^10.3.0"
 
 
 [build-system]

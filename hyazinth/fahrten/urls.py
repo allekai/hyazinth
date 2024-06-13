@@ -4,6 +4,7 @@ from .views import (
     AnmeldungErstellenView,
     AnmeldungListView,
     AnmeldungLoeschenView,
+    FahrtDetailView,
     FahrtErstellenView,
     FahrtBearbeitenView,
     FahrtListView,
@@ -18,7 +19,8 @@ urlpatterns = [
         name="fahrt_bearbeiten",
     ),
     path("<int:pk>/loeschen/", FahrtLoeschenView.as_view(), name="fahrt_loeschen"),
-    path("", FahrtListView.as_view(), name="fahrt_liste"),  # URL für die Fahrtenliste
+    path("", FahrtListView.as_view(), name="fahrt_liste"),
+    path("fahrt/<int:pk>/", FahrtDetailView.as_view(), name="fahrt_detail"),
     path(
         "anmeldung/erstellen/",
         AnmeldungErstellenView.as_view(),

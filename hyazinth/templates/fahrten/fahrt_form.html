@@ -2,13 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
 {% include 'base/navbar.html' %}
 
 <div class="container mt-4">
     <h1>{% if object %}Fahrt bearbeiten{% else %}Fahrt erstellen{% endif %}</h1>
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary">Speichern</button>

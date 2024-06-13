@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 {% include 'base/navbar.html' %}
 
 <div class="container mt-4">
@@ -37,6 +36,7 @@
                 <td>
                     <a href="{% url 'fahrt_bearbeiten' fahrt.pk %}" class="btn btn-sm btn-warning">Bearbeiten</a>
                     <a href="{% url 'fahrt_loeschen' fahrt.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+                    <a href="{% url 'fahrt_detail' fahrt.pk %}" class="btn btn-sm btn-info">Details</a>
                 </td>
             </tr>
             {% endfor %}

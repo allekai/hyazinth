@@ -7,6 +7,7 @@ class PfadfinderfahrtForm(forms.ModelForm):
         model = Pfadfinderfahrt
         fields = [
             "titel",
+            "bild",
             "ziel",
             "beschreibung",
             "motto",

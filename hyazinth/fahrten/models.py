@@ -13,6 +13,7 @@ class Pfadfinderfahrt(models.Model):
     end_ort = models.CharField(max_length=255)
     beschreibung = models.TextField(blank=True)
     motto = models.CharField(max_length=255, blank=True, null=True)  # Motto optional
+    bild = models.ImageField(upload_to="fahrten/", blank=True, null=True)
 
     def __str__(self):
         return f"Pfadfinderfahrt: {self.titel} ({self.start_zeit.strftime('%Y-%m-%d')})"

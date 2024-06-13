@@ -1,0 +1,5 @@
+.jumbotron-heading {
+    color: white;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
