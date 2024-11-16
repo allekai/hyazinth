@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'base/navbar.html' %}
+{% load static %}
+<div class="container mt-4">
+    {% if object.bild %}
+    <img src="{{ object.bild.url }}" class="img-fluid rounded" alt="Bild der Fahrt">
+    {% endif %}
+
+    <div class="mx-auto text-center">
+        <h1>{{ object.titel }}</h1>
+    </div>
+    <p><strong>Ziel:</strong> {{ object.ziel }}</p>
+    <p><strong>Motto:</strong> {{ object.motto }}</p>
+    <p><strong>Beschreibung:</strong> {{ object.beschreibung }}</p>
+    <p><strong>Startzeit:</strong> {{ object.start_zeit }}</p>
+    <p><strong>Endzeit:</strong> {{ object.end_zeit }}</p>
+    <p><strong>Startort:</strong> {{ object.start_ort }}</p>
+    <p><strong>Endort:</strong> {{ object.end_ort }}</p>
+
+    {% if user.is_authenticated %}
+    {% if not angemeldet %}
+    <form method="post" action="{% url 'anmeldung_erstellen' %}">
+        {% csrf_token %}
+        <input type="hidden" name="fahrt" value="{{ object.pk }}">
+        <button type="submit" class="btn btn-primary">Anmelden</button>
+    </form>
+    {% else %}
+    <p>Du bist bereits für diese Fahrt angemeldet.</p>
+    {% endif %}
+    {% else %}
+    <p>Bitte <a href="{% url 'login' %}">melde dich an</a>, um dich für die Fahrt anzumelden.</p>
+    {% endif %}
+</div>
+{% endblock %}

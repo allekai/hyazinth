@@ -31,6 +31,7 @@ As a user on the Hyazinth I want to...
 
 ## Anmeldungen
 * Anmeldung grds per View nur über die Seite der Fahrt zulassen (Refactoring des bestehenden)
+* Eltern User sollen 1..n eigene Kinder bei einer Fahrt anmelden können
 
 ## GIS
 * Maps usw mit reinbringen!

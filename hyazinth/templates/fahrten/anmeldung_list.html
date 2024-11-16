@@ -21,14 +21,14 @@
         <tbody>
             {% for anmeldung in aktuelle_anmeldungen %}
             <tr>
-                <td>{{ anmeldung.fahrt.titel }}</td>
+                <td>
+                    <a href="{% url 'fahrt_detail' anmeldung.fahrt.pk %}">{{ anmeldung.fahrt.titel }}</a>
+                </td>
                 <td>{{ anmeldung.fahrt.ziel }}</td>
                 <td>{{ anmeldung.fahrt.start_zeit }}</td>
                 <td>{{ anmeldung.fahrt.end_zeit }}</td>
                 <td>
-                    <a href="{% url 'anmeldung_bearbeiten' anmeldung.pk %}"
-                        class="btn btn-sm btn-warning">Bearbeiten</a>
-                    <a href="{% url 'anmeldung_loeschen' anmeldung.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+                    <a href="{% url 'anmeldung_loeschen' anmeldung.pk %}" class="btn btn-sm btn-danger">Abmelden</a>
                 </td>
             </tr>
             {% endfor %}
@@ -63,7 +63,9 @@
                         <tbody>
                             {% for anmeldung in vergangene_anmeldungen %}
                             <tr>
-                                <td>{{ anmeldung.fahrt.titel }}</td>
+                                <td>
+                                    <a href="{% url 'fahrt_detail' anmeldung.fahrt.pk %}">{{ anmeldung.fahrt.titel }}</a>
+                                </td>
                                 <td>{{ anmeldung.fahrt.ziel }}</td>
                                 <td>{{ anmeldung.fahrt.start_zeit }}</td>
                                 <td>{{ anmeldung.fahrt.end_zeit }}</td>

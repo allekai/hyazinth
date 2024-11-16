@@ -1,13 +1,14 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.conf import settings
 from django.urls import reverse_lazy
 from django.utils import timezone
 from .models import Anmeldung, Pfadfinderfahrt
 from .forms import (
     AnmeldungForm,
     PfadfinderfahrtForm,
-)  # Du musst ein Formular erstellen (siehe unten)
+)
 
 
 class FahrtErstellenView(CreateView):
@@ -36,6 +37,18 @@ class FahrtListView(ListView):
     context_object_name = (
         "object_list"  # Optional, um den Kontextnamen in der Vorlage anzupassen
     )
+
+
+class FahrtDetailView(DetailView):
+    model = Pfadfinderfahrt
+    template_name = "fahrten/fahrt_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["angemeldet"] = Anmeldung.objects.filter(
+            user=self.request.user, fahrt=self.object
+        ).exists()
+        return context
 
 
 class AnmeldungErstellenView(LoginRequiredMixin, CreateView):
