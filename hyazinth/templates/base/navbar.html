@@ -24,6 +24,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
                 </li>
+                {% if user.user_type == 'admin' %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'user_list' %}">Benutzerliste</a>
+                </li>
+                {% endif %}
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Registrieren</a>

@@ -6,10 +6,10 @@
 
 {% include "base/navbar.html" %}
 <div class="container">
-    <h1>Willkommen, {{ user.username }}!</h1>
-    {% if messages %}
+    <h1>Willkommen, {{ user.first_name }}!</h1>
+    <!-- {% if messages %}
     {% include "base/toast.html" %}
-    {% endif %}
+    {% endif %} -->
 
     <div class="profile-info">
         {% if user.profile.avatar %}
@@ -17,12 +17,14 @@
         {% endif %}
 
         <ul>
-            <li><strong>Name:</strong> {{ user.username }}</li>
+            <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
             <li><strong>E-Mail:</strong> {{ user.email }}</li>
+            <li><strong>Rolle:</strong> {{ user.user_type }}</li>
             {% if user.profile.bio %}
             <li><strong>Über mich:</strong> {{ user.profile.bio }}</li>
             {% endif %}
         </ul>
     </div>
+    <a href="{% url 'profile_update' %}" class="btn btn-primary">Profil bearbeiten</a>
 </div>
 {% endblock %}
