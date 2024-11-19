@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
-from accounts.models import User
-
+from django.contrib.auth import get_user_model
 
 class Pfadfinderfahrt(models.Model):
     titel = models.CharField(max_length=255)
@@ -20,7 +18,7 @@ class Pfadfinderfahrt(models.Model):
 
 
 class Anmeldung(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     fahrt = models.ForeignKey(Pfadfinderfahrt, on_delete=models.CASCADE)
     anmelde_zeitpunkt = models.DateTimeField(auto_now_add=True)
 
